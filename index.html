@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solar System: A Cosmic Journey</title>
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --primary-bg: #0d0d1a;
+            --secondary-bg: #1a1a33;
+            --glow-color: #a020f0;
+            --accent-color: #6a0572;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top left, var(--secondary-bg), var(--primary-bg));
+            background-size: 200% 200%;
+            animation: background-pan 30s linear infinite alternate;
+        }
+        
+        @keyframes background-pan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* --- Header and Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            background: rgba(13, 13, 26, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--glow-color);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-shadow: 0 0 15px var(--glow-color);
+            transition: text-shadow 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 25px var(--glow-color), 0 0 50px var(--glow-color);
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            background-color: var(--glow-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            text-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color);
+            animation: pulse 4s infinite ease-in-out;
+            letter-spacing: 5px;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px var(--accent-color);
+            margin-top: 10px;
+        }
+
+        /* --- Chapter Sections --- */
+        .chapter {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 80px 10%;
+            text-align: center;
+            background-color: var(--secondary-bg);
+            border-bottom: 1px dashed var(--accent-color);
+        }
+        
+        .chapter h2 {
+            font-size: 3.5rem;
+            text-shadow: 0 0 15px var(--glow-color);
+            margin-bottom: 20px;
+        }
+        
+        .chapter p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        /* --- Section Dividers --- */
+        .section {
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, var(--primary-bg), var(--secondary-bg), var(--primary-bg));
+            position: relative;
+            z-index: 1;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.05),
+                rgba(255, 255, 255, 0.05) 15px,
+                transparent 15px,
+                transparent 30px
+            );
+            animation: pan-lines 40s linear infinite;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--primary-bg);
+            border-top: 2px solid var(--glow-color);
+            font-size: 1rem;
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+
+        /* --- Animations --- */
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color); }
+            50% { text-shadow: 0 0 25px var(--glow-color), 0 0 50px var(--glow-color); }
+        }
+
+        @keyframes pan-lines {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        b {
+            color: var(--glow-color);
+            text-shadow: 0 0 8px rgba(160, 32, 240, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Talha</div>
+        <nav>
+            <a href="#sun">The Sun</a>
+            <a href="#mercury">Mercury</a>
+            <a href="#venus">Venus</a>
+            <a href="#earth">Earth</a>
+            <a href="#mars">Mars</a>
+            <a href="#asteroid-belt">Asteroid Belt</a>
+            <a href="#jupiter">Jupiter</a>
+            <a href="#saturn">Saturn</a>
+            <a href="#uranus">Uranus</a>
+            <a href="#neptune">Neptune</a>
+            <a href="#dwarf-planets">Dwarf Planets</a>
+            <a href="#kuiper-belt">Kuiper Belt</a>
+            <a href="#oort-cloud">Oort Cloud</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>The Solar System: A Cosmic Journey</h1>
+            <p>An exploration of our celestial neighborhood.</p>
+        </div>
+
+        <div class="chapter" id="sun">
+            <h2>The Sun</h2>
+            <p>The **Sun** is the star at the center of our solar system, making up 99.8% of its total mass. It is a massive ball of hot plasma, and its immense gravity holds the planets and other celestial bodies in their orbits. The Sun's energy, generated by nuclear fusion, is essential for all life on Earth. As a yellow dwarf star, it is currently in its main sequence phase, but in about 5 billion years, it will begin to expand into a red giant, eventually shedding its outer layers to become a white dwarf.</p>
+        </div>
+
+        <div class="section"></div>
+
+        <div class="chapter" id="mercury">
+            <h2>Mercury</h2>
+            <p>**Mercury**, the smallest and innermost planet, is a scorching hot world with a heavily cratered surface that resembles our Moon. It has no moons and its day is longer than its year, making it a place of extreme temperature swings, from 430°C on the sun-facing side to -180°C in the dark. Despite its small size, Mercury has a weak but global magnetic field, suggesting a partially molten core. The planet's thin, almost non-existent atmosphere is a "surface-bound exosphere" composed of atoms blasted off its surface by the solar wind.</p>
+        </div>
+
+        <div class="section"></div>
+
+        <div class="chapter" id="venus">
+            <h2>Venus</h2>
+            <p>Often called Earth's "sister planet" due to its similar size, **Venus** is a hellish world with a runaway greenhouse effect. Its thick, toxic atmosphere of carbon dioxide and sulfuric acid traps heat, making it the hottest planet in our solar system, with a surface temperature hot enough to melt lead. Uniquely, Venus rotates in the opposite direction to most planets, a phenomenon known as retrograde rotation, and it does so very slowly—a day on Venus is longer than its year.</p>
+        </div>
+
+        <div class="section"></div>
+
+        <div class="chapter" id="earth">
+            <h2>Earth</h2>
+            <p>Our home planet, **Earth**, is unique for its vast oceans of liquid water and a diverse biosphere. It is the only known planet to harbor life, protected by an ozone layer and a strong magnetic field from solar radiation. Its atmosphere, composed mainly of nitrogen and oxygen, provides the perfect conditions for life as we know it. Earth's moon, a relatively large natural satellite, stabilizes the planet's axial tilt, which in turn helps regulate our climate and seasons.</p>
+        </div>
+
+        <div class="section"></div>
+        
+        <div class="chapter" id="mars">
+            <h2>Mars</h2>
+            <p>Known as the **Red Planet**, Mars is a cold, desert world with a thin atmosphere. It's home to the tallest volcano in the solar system, Olympus Mons, and has polar ice caps of water and carbon dioxide ice. The surface is covered in iron oxide, giving it a rusty-red appearance. Mars is a prime target for future human exploration due to evidence of past liquid water. It has two small, irregularly shaped moons, Phobos and Deimos, which are believed to be captured asteroids.</p>
+        </div>
+
+        <div class="section"></div>
+        
+        <div class="chapter" id="asteroid-belt">
+            <h2>The Asteroid Belt</h2>
+            <p>The **Asteroid Belt** is a torus-shaped region in our solar system, located roughly between the orbits of Mars and Jupiter. It is home to a vast number of irregularly shaped bodies called asteroids, which range in size from a few meters to hundreds of kilometers across. The belt is surprisingly empty; asteroids are very far apart, and the region is not a densely packed field. It is also where the dwarf planet Ceres resides, the largest object in the belt, and is thought to be the remains of a "lost planet" that failed to form due to Jupiter's powerful gravitational influence.</p>
+        </div>
+        
+        <div class="section"></div>
+
+        <div class="chapter" id="jupiter">
+            <h2>Jupiter</h2>
+            <p>The largest planet in our solar system, **Jupiter** is a gas giant with a swirling atmosphere of hydrogen and helium. It's famous for its Great Red Spot, a massive storm that has been raging for centuries. Jupiter has a strong magnetic field and more than 80 moons, including the four largest known as the Galilean moons: Io, Europa, Ganymede, and Callisto. Its immense size and gravity create powerful radiation belts and play a crucial role in sweeping up comets, protecting the inner planets from frequent impacts.</p>
+        </div>
+        
+        <div class="section"></div>
+        
+        <div class="chapter" id="saturn">
+            <h2>Saturn</h2>
+            <p>The second-largest planet, **Saturn** is a gas giant best known for its magnificent and complex ring system, composed of countless ice and rock particles. It has a less dense atmosphere than Jupiter and also boasts numerous moons, including the large moon Titan, which has its own dense atmosphere and liquid lakes on its surface. The rings of Saturn are an awe-inspiring sight, stretching over 282,000 km wide but only about 20 meters thick. The rings are thought to be relatively young, possibly formed from a shattered moon.</p>
+        </div>
+
+        <div class="section"></div>
+
+        <div class="chapter" id="uranus">
+            <h2>Uranus</h2>
+            <p>An ice giant, **Uranus** has a pale blue-green color due to the methane in its atmosphere. It is unique among the planets for rotating on its side, meaning it has extreme seasonal changes where one pole faces the Sun for 42 Earth years. This extreme tilt is thought to be the result of a massive collision with a planetary-sized object early in its history. It also has a faint ring system and dozens of moons, and its magnetic field is also tilted, making it very unusual.</p>
+        </div>
+
+        <div class="section"></div>
+
+        <div class="chapter" id="neptune">
+            <h2>Neptune</h2>
+            <p>The most distant planet from the Sun, **Neptune** is a dark, cold, and incredibly windy ice giant. It's known for its powerful storms, including the Great Dark Spot, and is often described as a twin to Uranus, though it appears a deeper shade of blue. Neptune's winds are the fastest in the solar system, reaching speeds of over 2,000 km/h. It has a total of 14 known moons, with Triton being the largest, which has an unusual retrograde orbit, suggesting it was captured by Neptune's gravity.</p>
+        </div>
+
+        <div class="section"></div>
+        
+        <div class="chapter" id="dwarf-planets">
+            <h2>Dwarf Planets</h2>
+            <p>**Dwarf planets** are celestial bodies that are too small to be classified as planets but are still large enough to be rounded by their own gravity. The most famous example is Pluto, located in the Kuiper Belt beyond Neptune, which was reclassified in 2006. Other dwarf planets include Eris, a slightly more massive body than Pluto; Haumea, a fast-spinning, egg-shaped body with a ring system and moons; and Makemake, one of the brightest objects in the Kuiper Belt. These bodies provide valuable insights into our solar system's formation.</p>
+        </div>
+
+        <div class="section"></div>
+
+        <div class="chapter" id="kuiper-belt">
+            <h2>The Kuiper Belt</h2>
+            <p>Beyond the orbit of Neptune lies the **Kuiper Belt**, a vast, doughnut-shaped region of icy bodies and dwarf planets. It is similar to the asteroid belt but is far larger, with an estimated size that is 20 times as wide and 20-200 times as massive. The objects in the Kuiper Belt are remnants from the solar system's formation and are primarily composed of frozen volatiles like methane, ammonia, and water. This region is the source of many short-period comets, which have orbital periods of less than 200 years.</p>
+        </div>
+        
+        <div class="section"></div>
+
+        <div class="chapter" id="oort-cloud">
+            <h2>The Oort Cloud</h2>
+            <p>The **Oort Cloud** is a theoretical spherical cloud of icy planetesimals believed to be the outermost region of our solar system, extending from about 2,000 AU to as far as 200,000 AU from the Sun. It is so vast that it is considered the boundary of the Sun's gravitational dominance. The objects within the Oort Cloud are only loosely bound to the Sun, and gravitational perturbations from passing stars can occasionally send these icy bodies on a journey toward the inner solar system, where they become long-period comets.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Made by Talha</p>
+    </footer>
+
+</body>
+</html>
